@@ -5,33 +5,6 @@ title: "Analysis"
 First of all, we generated the data that would be useful to us from TURKSTAT's website. After downloading the data as an Excel file, we changed the positions of the columns and raws, making it easier to work on it. Next, we anchored the rows and columns of the data so that R could read them. Finally, we created column headings for the cities.
 
 ```{r}
-dataset <- read.csv("C:\Users\aysil\OneDrive\Belgeler\GitHub\emu430-fall2023-team-quant_flare\docs\Foreign child by year.csv")
 
-head(dataset)
-str(dataset)
-
-summary(dataset)
-
-na_count <- colSums(is.na(dataset))
-na_count
-
-par(mfrow=c(2,2))
-for (col in colnames(dataset)) {
-  if (is.numeric(dataset[[col]])) {
-    hist(dataset[[col]], main=col, xlab=col)
-  }
-}
-
-par(mfrow=c(2,2))
-for (col in colnames(dataset)) {
-  if (is.numeric(dataset[[col]])) {
-    boxplot(dataset[[col]], main=col, xlab=col)
-  }
-}
-
-table(dataset$X.Rows...Population.Of.Foreign.Child........)
-
-barplot(table(dataset$X.Rows...Population.Of.Foreign.Child........), main="Population Of Foreign Child
-")
 
 ```
