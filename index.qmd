@@ -1,5 +1,5 @@
 ---
-title: "Team XXX"
+title: "Team Quant Flare"
 sidebar: false 
 ---
 
@@ -7,18 +7,31 @@ This is our project webpage.
 
 Please stay tuned to follow our project activities.
 
-This is our template.
-
 # Team Members
 
-1.  [Edin_Džeko](https://tr.wikipedia.org/wiki/Edin_D%C5%BEeko)
+1.  [Ayberk Gönülrazı](https://emu-hacettepe-analytics.github.io/emu430-fall2023-ayberkgnlraz/)
 
-2.  [Dušan Tadić](https://tr.wikipedia.org/wiki/Du%C5%A1an_Tadi%C4%87)
+2.  [Ayşıl Mutlu](https://emu-hacettepe-analytics.github.io/emu430-fall2023-aysilmutlu/)
 
-3.  [Frederico Rodrigues de Paula Santos](https://tr.wikipedia.org/wiki/Fred_(1993_do%C4%9Fumlu_futbolcu))
+3.  [Ulaş Sarp Koçak](https://emu-hacettepe-analytics.github.io/emu430-fall2023-ulassarpkocak/)
 
-4.  [Sebastian Szymański](https://tr.wikipedia.org/wiki/Sebastian_Szyma%C5%84ski)
+4.  [Zeynep Ayşe Özçelik](https://emu-hacettepe-analytics.github.io/emu430-fall2023-zeynepaozcelik/)
 
 # Project Topic
 
+The data set we examine in this study include the annual number of foreign infants born in Turkey and the country's population growth rate. 
+
+The Turkish Statistical Institute (TURKSTAT) and other official sources of demographic data are the primary sources of the data collection. These sources include information that is current and dependable, having been collected by using techniques like massive field surveys and censuses. This will ensure the accuracy and reliability of the basics that our study is based on.
+
+We chose this data set in order to figure out the causes behind the changes in Turkey's demographic structure. Indicators such as the population growth rate and the number of foreign births have importance to assessing a nation's demographic progress and forecasting future trends. We will be able to better understand the population's age distribution, migratory patterns, and relationships with socioeconomic characteristics through analyses performed on this data collection.
+
+This study's primary objectives are to identify any potential social effects of Turkey's changing demographic structure and to get a thorough understanding of these changes. Additionally, these evaluations are meant to give insight on strategic planning by projecting future demographic patterns.[1]
+
+
 # Data Set
+
+We received the data we will discuss in this project from TÜİK. You can access the resources from [here](https://data.tuik.gov.tr/Kategori/GetKategori?p=Population-and-Demography-109) and [here](https://biruni.tuik.gov.tr/medas/?kn=206&locale=en).
+
+
+
+[1]We got help from QuillBot's Paraphraser and Grammar Checker tools to use more effective phrases in the texts we prepared.
