@@ -18,13 +18,34 @@
     "href": "analysis.html",
     "title": "Analysis",
     "section": "",
-    "text": "First of all, we generated the data that would be useful to us from TURKSTAT’s website. After downloading the data as an Excel file, we changed the positions of the columns and raws, making it easier to work on it. Next, we anchored the rows and columns of the data so that R could read them. Finally, we created column headings for the cities.\n\n\n\n Back to top"
+    "text": "First of all, we generated the data that would be useful to us from TURKSTAT’s website. After downloading the data as an Excel file, we changed the positions of the columns and raws, making it easier to work on it. Next, we anchored the rows and columns of the data so that R could read them. Finally, we created column headings for the cities.\n# We converted the data to long format for ggplot2\nlibrary(tidyr)\nforeign_child_long &lt;- gather(foreign_child_by_year_xlsx, key = \"Year\", value = \"Value\", -City)\n\n# Code for Printing the structure and head of the data frame for inspection\nstr(foreign_child_long)\nhead(foreign_child_long)\n\n# Converting the 'Year' column to a factor for correct ordering\nforeign_child_long$Year &lt;- factor(foreign_child_long$Year, levels = c(\"2014\", \"2015\", \"2016\", \"2017\", \"2018\", \"2019\", \"2020\", \"2021\", \"2022\"))\n\n# Checking the levels of the 'Year' factor\nlevels(foreign_child_long$Year)\n\n# Creating a line plot\nlibrary(ggplot2)\nggplot(foreign_child_long, aes(x = Year, y = Value, group = City, color = City)) +\n  geom_line() +\n  geom_point() +\n  labs(title = \"Foreign Child Population Over the Years\",\n       x = \"Year\",\n       y = \"Population\") +\n  theme_minimal()\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "data.html",
     "href": "data.html",
     "title": "Data",
     "section": "",
-    "text": "Data source:\nhttps://biruni.tuik.gov.tr/medas/?kn=206&locale=en\n\n\n\n Back to top"
+    "text": "Data source:\nhttps://biruni.tuik.gov.tr/medas/?kn=206&locale=en"
+  },
+  {
+    "objectID": "data.html#what-is-the-information-about-and-where-did-it-come-from",
+    "href": "data.html#what-is-the-information-about-and-where-did-it-come-from",
+    "title": "Data",
+    "section": "What is the information about, and where did it come from?",
+    "text": "What is the information about, and where did it come from?\nThe “foreign child by year” data set, which we examined, displays the breakdown of foreign children in Turkey’s 81 provinces from 2014 to 2022. We obtained this information from the Turkish Statistical Institute’s (TUIK) database.\n##Why did we choose this data?\nWe intended to carry out a study to look at the severity of the immigration issue in our nation over time, which began in Turkey approximately ten years ago. We looked at the distribution of the growing number of foreign children in Turkey by years and provinces. Since immigrants have been arriving from various nations (Syria, Afghanistan, Pakistan, etc.) and raising children there, we also looked at how these provinces’ demographic structures will likely deteriorate over the next few years. Our goal is to examine this data set and forecast the balance that will develop between Turkish and international students in the upcoming years, as well as the implications and effects on the educational environment in schools."
+  },
+  {
+    "objectID": "data.html#origin-of-data",
+    "href": "data.html#origin-of-data",
+    "title": "Data",
+    "section": "Origin of data",
+    "text": "Origin of data\nThe “foreign child by year” data set, which we examined, displays the breakdown of foreign children in Turkey’s 81 provinces from 2014 to 2022. We obtained this information from the Turkish Statistical Institute’s (TUIK) database."
+  },
+  {
+    "objectID": "data.html#why-did-we-choose-this-data",
+    "href": "data.html#why-did-we-choose-this-data",
+    "title": "Data",
+    "section": "Why did we choose this data?",
+    "text": "Why did we choose this data?\nWe intended to carry out a study to look at the severity of the immigration issue in our nation over time, which began in Turkey approximately ten years ago. We looked at the distribution of the growing number of foreign children in Turkey by years and provinces. Since immigrants have been arriving from various nations (Syria, Afghanistan, Pakistan, etc.) and raising children there, we also looked at how these provinces’ demographic structures will likely deteriorate over the next few years. Our goal is to examine this data set and forecast the balance that will develop between Turkish and international students in the upcoming years, as well as the implications and effects on the educational environment in schools."
   }
 ]
