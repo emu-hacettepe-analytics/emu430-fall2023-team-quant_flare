@@ -2,64 +2,41 @@
 title: "Analysis"
 ---
 
-First of all, we generated the data that would be useful to us from TURKSTAT's website. After downloading the data as an Excel file, we changed the positions of the columns and raws, making it easier to work on it. Next, we anchored the rows and columns of the data so that R could read them. Finally, we created column headings for the cities.
+First of all, we generated the data that would be useful to us from TURKSTAT's website. After downloading the data as an Excel file, we changed the positions of the columns and raws, making it easier to work on it. Next, we anchored the rows and columns of the data so that R could read them. Finally, we created column headings for the cities.\
+\
+Loading necessary libraries :
 
-```{r}
-dataset <- read_excel(Foreign_child_by_year.xls)
+```{r, message=FALSE, results='asis'}
+#| warning: false
+#| code-summary: "Show the code"
+#| code-fold: true
+
+library(readxl)
+library(ggplot2)
+library(tidyverse)
+library(dplyr)
+library(knitr)
+library(ggrepel)
+library(reshape2)
+library(gridExtra)
+
+```
+
+Load the data:
+
+```{r, message=FALSE, results='asis'}
+#| warning: false
+#| code-summary: "Show the code"
+#| code-fold: true
+
+library(readxl)
+url <- "https://github.com/emu-hacettepe-analytics/emu430-fall2023-team-quant_flare/raw/master/Foreign_child_by_year.xlsx"
+temp_file <- tempfile(fileext = ".xlsx")
+download.file(url, temp_file, mode = "wb")
+dataset <- read_excel(temp_file)
 
 head(dataset)
 str(dataset)
 
 summary(dataset)
-
-na_count <- colSums(is.na(dataset))
-na_count
-
-par(mfrow=c(2,2))
-for (col in colnames(dataset)) {
-  if (is.numeric(dataset[[col]])) {
-    hist(dataset[[col]], main=col, xlab=col)
-  }
-}
-
-par(mfrow=c(2,2))
-for (col in colnames(dataset)) {
-  if (is.numeric(dataset[[col]])) {
-    boxplot(dataset[[col]], main=col, xlab=col)
-  }
-}
-
-table(dataset$X.Rows...Population.Of.Foreign.Child........)
-
-barplot(table(dataset$X.Rows...Population.Of.Foreign.Child........), main="Population Of Foreign Child
-")
-")
-
-head(dataset)
-str(dataset)
-
-summary(dataset)
-
-na_count <- colSums(is.na(dataset))
-na_count
-
-par(mfrow=c(2,2))
-for (col in colnames(dataset)) {
-  if (is.numeric(dataset[[col]])) {
-    hist(dataset[[col]], main=col, xlab=col)
-  }
-}
-
-par(mfrow=c(2,2))
-for (col in colnames(dataset)) {
-  if (is.numeric(dataset[[col]])) {
-    boxplot(dataset[[col]], main=col, xlab=col)
-  }
-}
-
-table(dataset$X.Rows...Population.Of.Foreign.Child........)
-
-barplot(table(dataset$X.Rows...Population.Of.Foreign.Child........), main="Population of Foreign Child")
-
-
 ```
