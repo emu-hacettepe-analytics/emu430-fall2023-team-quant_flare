@@ -40,3 +40,75 @@ str(dataset)
 
 summary(dataset)
 ```
+
+# EDA ANALYSE
+
+```{r, message=FALSE, results='asis'}
+#| warning: false
+#| code-summary: "Show the code"
+#| code-fold: true
+
+head(dataset)
+str(dataset)
+summary(dataset)
+
+
+# Calculating the average values of cities for each year
+mean_values <- dataset %>%
+  gather(key = "Year", value = "Value", -City) %>%
+  group_by(Year) %>%
+  summarize(mean_value = mean(Value, na.rm = TRUE))
+
+# Plotting average values
+ggplot(mean_values, aes(x = Year, y = mean_value)) +
+  geom_line() +
+  labs(title = "Average Values of Cities by Years",
+       x = "Year",
+       y = "Average") +
+  theme_minimal()
+
+# Drawing a boxplot of values by city
+dataset_long <- melt(dataset, id.vars = "City")
+ggplot(dataset_long, aes(x = variable, y = value)) +
+  geom_boxplot() +
+  labs(title = "Value Distribution of Cities",
+       x = "Year",
+       y = "Value") +
+  theme_minimal()
+
+# Showing ranked values of cities for 2022
+dataset_2022 <- dataset %>%
+  select(City, `2022`) %>%
+  arrange(desc(`2022`))
+
+ggplot(dataset_2022, aes(x = reorder(City, `2022`), y = `2022`)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Ranked Values of Cities by 2022",
+       x = "City",
+       y = "Value") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Bring related charts together
+grid.arrange(ggplot(mean_values, aes(x = Year, y = mean_value)) +
+               geom_line() +
+               labs(title = "Average Values of Cities by Years",
+                    x = "Year",
+                    y = "Average") +
+               theme_minimal(),
+             ggplot(dataset_long, aes(x = variable, y = value)) +
+               geom_boxplot() +
+               labs(title = "Value Distributions of Cities",
+                    x = "Year",
+                    y = "Value") +
+               theme_minimal(),
+             ggplot(dataset_2022, aes(x = reorder(City, `2022`), y = `2022`)) +
+               geom_bar(stat = "identity") +
+               labs(title = "Ranked Values of Cities by 2022",
+                    x = "City",
+                    y = "Value") +
+               theme_minimal() +
+               theme(axis.text.x = element_text(angle = 45, hjust = 1)),
+             ncol = 1)
+
+```

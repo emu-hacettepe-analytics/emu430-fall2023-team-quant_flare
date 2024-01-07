@@ -147,6 +147,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#a-tibble-6-10" id="toc-a-tibble-6-10" class="nav-link active" data-scroll-target="#a-tibble-6-10">A tibble: 6 × 10</a></li>
+  <li><a href="#eda-analyse" id="toc-eda-analyse" class="nav-link" data-scroll-target="#eda-analyse">EDA ANALYSE</a></li>
+  <li><a href="#a-tibble-6-10-1" id="toc-a-tibble-6-10-1" class="nav-link" data-scroll-target="#a-tibble-6-10-1">A tibble: 6 × 10</a></li>
   </ul>
 </nav>
 </nav>
@@ -232,6 +234,117 @@ Median : 1272 Median : 1313<br>
 Mean : 4506 Mean : 4561<br>
 3rd Qu.: 3276 3rd Qu.: 3029<br>
 Max. :113605 Max. :118735</p>
+</section>
+<section id="eda-analyse" class="level1">
+<h1>EDA ANALYSE</h1>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</section>
+<section id="a-tibble-6-10-1" class="level1">
+<h1>A tibble: 6 × 10</h1>
+<p>City <code>2014</code> <code>2015</code> <code>2016</code> <code>2017</code> <code>2018</code> <code>2019</code> <code>2020</code> <code>2021</code> <code>2022</code> <chr> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> 1 Adana 2416 2148 1810 2031 3211 3899 3951 4151 4195 2 Adıyaman 57 69 142 303 520 554 474 505 564 3 Afyonkarahisar 1027 1342 2005 2063 3036 3625 3741 4025 3736 4 Ağrı 198 136 163 118 149 146 111 188 219 5 Aksaray 1482 1865 2780 3291 4605 4839 5088 5664 5740 6 Amasya 347 704 1022 1005 1659 1660 1575 1462 1313</dbl></dbl></dbl></dbl></dbl></dbl></dbl></dbl></dbl></chr></p>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>tibble [81 × 10] (S3: tbl_df/tbl/data.frame) $ City: chr [1:81] “Adana” “Adıyaman” “Afyonkarahisar” “Ağrı” … $ 2014: num [1:81] 2416 57 1027 198 1482 … $ 2015: num [1:81] 2148 69 1342 136 1865 … $ 2016: num [1:81] 1810 142 2005 163 2780 … $ 2017: num [1:81] 2031 303 2063 118 3291 … $ 2018: num [1:81] 3211 520 3036 149 4605 … $ 2019: num [1:81] 3899 554 3625 146 4839 … $ 2020: num [1:81] 3951 474 3741 111 5088 … $ 2021: num [1:81] 4151 505 4025 188 5664 … $ 2022: num [1:81] 4195 564 3736 219 5740 …</p>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<pre><code> City                2014            2015            2016      </code></pre>
+<p>Length:81 Min. : 5 Min. : 4 Min. : 4<br>
+Class :character 1st Qu.: 192 1st Qu.: 213 1st Qu.: 240<br>
+Mode :character Median : 447 Median : 603 Median : 941<br>
+Mean : 1048 Mean : 1419 Mean : 1914<br>
+3rd Qu.: 939 3rd Qu.: 1364 3rd Qu.: 1663<br>
+Max. :19700 Max. :26700 Max. :33938<br>
+2017 2018 2019 2020<br>
+Min. : 5 Min. : 5 Min. : 6 Min. : 8<br>
+1st Qu.: 178 1st Qu.: 264 1st Qu.: 381 1st Qu.: 376<br>
+Median : 1088 Median : 1303 Median : 1354 Median : 1224<br>
+Mean : 2309 Mean : 3425 Mean : 4082 Mean : 3570<br>
+3rd Qu.: 2076 3rd Qu.: 2932 3rd Qu.: 3401 3rd Qu.: 2991<br>
+Max. :46736 Max. :71830 Max. :92286 Max. :66703<br>
+2021 2022<br>
+Min. : 11 Min. : 11<br>
+1st Qu.: 505 1st Qu.: 449<br>
+Median : 1272 Median : 1313<br>
+Mean : 4506 Mean : 4561<br>
+3rd Qu.: 3276 3rd Qu.: 3029<br>
+Max. :113605 Max. :118735</p>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating the average values of cities for each year</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mean_values <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="at">key =</span> <span class="st">"Year"</span>, <span class="at">value =</span> <span class="st">"Value"</span>, <span class="sc">-</span>City) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(Value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting average values</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mean_values, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> mean_value)) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Values of Cities by Years"</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average"</span>) <span class="sc">+</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p><img src="analysis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drawing a boxplot of values by city</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dataset_long <span class="ot">&lt;-</span> <span class="fu">melt</span>(dataset, <span class="at">id.vars =</span> <span class="st">"City"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dataset_long, <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Value Distribution of Cities"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Value"</span>) <span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p><img src="analysis_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Showing ranked values of cities for 2022</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>dataset_2022 <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(City, <span class="st">`</span><span class="at">2022</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="st">`</span><span class="at">2022</span><span class="st">`</span>))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dataset_2022, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(City, <span class="st">`</span><span class="at">2022</span><span class="st">`</span>), <span class="at">y =</span> <span class="st">`</span><span class="at">2022</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Ranked Values of Cities by 2022"</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"City"</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Value"</span>) <span class="sc">+</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p><img src="analysis_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid" width="672"></p>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bring related charts together</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(<span class="fu">ggplot</span>(mean_values, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> mean_value)) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>               <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Values of Cities by Years"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">y =</span> <span class="st">"Average"</span>) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>               <span class="fu">theme_minimal</span>(),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>             <span class="fu">ggplot</span>(dataset_long, <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>               <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>               <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Value Distributions of Cities"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                    <span class="at">y =</span> <span class="st">"Value"</span>) <span class="sc">+</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>               <span class="fu">theme_minimal</span>(),</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>             <span class="fu">ggplot</span>(dataset_2022, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(City, <span class="st">`</span><span class="at">2022</span><span class="st">`</span>), <span class="at">y =</span> <span class="st">`</span><span class="at">2022</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>               <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>               <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Ranked Values of Cities by 2022"</span>,</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>                    <span class="at">x =</span> <span class="st">"City"</span>,</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>                    <span class="at">y =</span> <span class="st">"Value"</span>) <span class="sc">+</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>               <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>               <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)),</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p><img src="analysis_files/figure-html/unnamed-chunk-3-4.png" class="img-fluid" width="672"></p>
 
 
 </section>
