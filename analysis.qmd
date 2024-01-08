@@ -53,19 +53,25 @@ str(dataset)
 summary(dataset)
 
 
-# Calculating the average values of cities for each year
+# Veri çerçevesini oluştur
 mean_values <- dataset %>%
   gather(key = "Year", value = "Value", -City) %>%
   group_by(Year) %>%
   summarize(mean_value = mean(Value, na.rm = TRUE))
 
-# Plotting average values
+# Veri çerçevesini kontrol et
+print(mean_values)
+
+# Plotting average values with y-axis limit
 ggplot(mean_values, aes(x = Year, y = mean_value)) +
-  geom_line() +
+  geom_line(color = "blue", linetype = "solid") +
   labs(title = "Average Values of Cities by Years",
        x = "Year",
        y = "Average") +
-  theme_minimal()
+  theme_minimal() +
+  ylim(lower = 1000, upper = 5000)
+
+
 
 # Drawing a boxplot of values by city
 dataset_long <- melt(dataset, id.vars = "City")
