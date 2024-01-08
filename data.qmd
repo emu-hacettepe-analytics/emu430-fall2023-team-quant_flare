@@ -13,13 +13,3 @@ The "foreign child by year" data set, which we examined, displays the breakdown 
 # Why did we choose this data?
 
 We intended to carry out a study to look at the severity of the immigration issue in our nation over time, which began in Turkey approximately ten years ago. We looked at the distribution of the growing number of foreign children in Turkey by years and provinces. Since immigrants have been arriving from various nations (Syria, Afghanistan, Pakistan, etc.) and raising children there, we also looked at how these provinces' demographic structures will likely deteriorate over the next few years. Our goal is to examine this data set and forecast the balance that will develop between Turkish and international students in the upcoming years, as well as the implications and effects on the educational environment in schools.
-
-# How did we import the data?
-
-First, we obtained the data to be used for analysis from TURKSTAT's website. To import this data, we read the Excel file using the readxl library. We downloaded the data and stored it in a temporary file, using the download.file function to pull the data from GitHub and the tempfile function to create a temporary file. Next, we loaded the Excel data into the R environment using the read_excel function and represented it with a variable called dataset.
-
-Before examining the data, we discussed potential preprocessing steps. For example, we implemented a preprocessing step using the na.omit function to check for missing values ​​and clean them if necessary. We thought that cleaning missing values ​​would contribute to making the data more consistent and reliable. However, we also added other preprocessing steps depending on the characteristics of the dataset. For example, editing the data, removing unnecessary columns, etc.
-
-Finally, we examined the data using the head, str, and summary functions. While the first few rows were displayed with head, the str function explained the structure of the data set in detail. The summary function provided the basic statistical summary of each variable.
-
-Each of these steps were important for the data set to be analyzed accurately and reliably.
