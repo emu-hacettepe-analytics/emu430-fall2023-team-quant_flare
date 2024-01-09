@@ -62,17 +62,6 @@ mean_values <- dataset %>%
 # Veri çerçevesini kontrol et
 print(mean_values)
 
-# Plotting average values with y-axis limit
-ggplot(mean_values, aes(x = Year, y = mean_value)) +
-  geom_line(color = "blue", linetype = "solid") +
-  labs(title = "Average Values of Cities by Years",
-       x = "Year",
-       y = "Average") +
-  theme_minimal() +
-  ylim(lower = 1000, upper = 5000)
-
-
-
 # Drawing a boxplot of values by city
 dataset_long <- melt(dataset, id.vars = "City")
 ggplot(dataset_long, aes(x = variable, y = value)) +
@@ -96,13 +85,7 @@ ggplot(dataset_2022, aes(x = reorder(City, `2022`), y = `2022`)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 # Bring related charts together
-grid.arrange(ggplot(mean_values, aes(x = Year, y = mean_value)) +
-               geom_line() +
-               labs(title = "Average Values of Cities by Years",
-                    x = "Year",
-                    y = "Average") +
-               theme_minimal(),
-             ggplot(dataset_long, aes(x = variable, y = value)) +
+grid.arrange(ggplot(dataset_long, aes(x = variable, y = value)) +
                geom_boxplot() +
                labs(title = "Value Distributions of Cities",
                     x = "Year",
@@ -116,5 +99,69 @@ grid.arrange(ggplot(mean_values, aes(x = Year, y = mean_value)) +
                theme_minimal() +
                theme(axis.text.x = element_text(angle = 45, hjust = 1)),
              ncol = 1)
+               
+```
+
+Visualization to see trends We visualized the data set as a line graph. In this way , data visualization of all cities was achieved at once.
+
+```{r, message=FALSE, results='asis'}
+#| warning: false
+#| code-summary: "Show the code"
+#| code-fold: true
+
+# We converted the data to long format for ggplot2
+library(tidyr)
+foreign_child_long <- gather(dataset, key = "Year", value = "Value", -City)
+
+# Code for Printing the structure and head of the data frame for inspection
+str(foreign_child_long)
+head(foreign_child_long)
+
+# Converting the 'Year' column to a factor for correct ordering
+foreign_child_long$Year <- factor(foreign_child_long$Year, levels = c("2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"))
+
+# Checking the levels of the 'Year' factor
+levels(foreign_child_long$Year)
+
+# Creating a line plot
+library(ggplot2)
+ggplot(foreign_child_long, aes(x = Year, y = Value, group = City, color = City)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Foreign Child Population Over the Years",
+       x = "Year",
+       y = "Population") +
+  theme_minimal()
 
 ```
+
+As we expected, the number in densely populated cities such as Istanbul and Ankara was much higher than other cities. But what was surprising was the density in Antalya. Antalya, which is not among the top 5 provinces of Turkey in terms of population density, had a higher density than expected. Having all 81 cities on a single line chart did not provide a very efficient analysis facility. We added the columns of the data set and plotted the total number between 2014 and 2022 on a line chart. In this way, a trend that is the average of all cities can be observed.
+
+```{r}
+# We converted the data to long format for ggplot2
+library(tidyr)
+foreign_child_long <- gather(dataset, key = "Year", value = "Value", -City)
+
+# Code for Printing the structure and head of the data frame for inspection
+str(foreign_child_long)
+head(foreign_child_long)
+
+# Converting the 'Year' column to a factor for correct ordering
+foreign_child_long$Year <- factor(foreign_child_long$Year, levels = c("2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"))
+
+total_foreign_child <- foreign_child_long %>%
+  group_by(Year) %>%
+  summarise(Total_Value = sum(Value, na.rm = TRUE))
+
+# Creating a line plot for the total values
+ggplot(total_foreign_child, aes(x = Year, y = Total_Value)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Total Foreign Child Population Over the Years",
+       x = "Year",
+       y = "Total Population") +
+  theme_minimal() +
+  scale_y_continuous(labels = scales::comma_format(scale = 1e-3, suffix = "K"))
+```
+
+In the light of the graph , it can be easily seen that there is an increasing trend in the number of foreign babies born in the last 10 years.
